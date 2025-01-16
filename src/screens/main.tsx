@@ -10,7 +10,7 @@ import {
   useColorModeValue
 } from 'native-base'
 import ThemeToggle from '../components/theme-toggle'
-import AnimatedCheckBox from '../components/animated-checkbox'
+import TaskItem from '../components/task-item'
 
 export default function MainScreen() {
   const [checked, setChecked] = useState(false)
@@ -27,11 +27,7 @@ export default function MainScreen() {
       flex={1}
     >
       <VStack space={5} alignItems="center">
-        <Box w="100px" h="100px">
-          <Pressable onPress={handlePressCheckBox}>
-            <AnimatedCheckBox checked={checked} />
-          </Pressable>
-        </Box>
+        <TaskItem isDone={checked} onToggleCheckBox={handlePressCheckBox} />
         <Box p={5} bg={useColorModeValue('red.500', 'yellow.500')}>
           <Text>Hello</Text>
         </Box>
